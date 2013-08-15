@@ -1,0 +1,21 @@
+{
+	"id": "visitors-statistics",
+	"name": "Visitors Statistics",
+	"description": "This app allows to count visitors who opened the page with this application.",
+	"icon": "",
+	"category": "applications",
+	"developer": {
+		"id": "echo",
+		"name": "Echo",
+		"url": "http://www.aboutecho.com",
+		"email": "solutions@aboutecho.com",
+		"icon": "http://cdn.echoenabled.com/images/echo.png"
+	},
+	"dashboards": [{
+		// TODO
+	}],
+	"webhooks": {
+		"instance/add": {"url": "http://statistic.parseapp.com/hook/instance/add"},
+		"instance/remove": {"url": "http://statistic.parseapp.com/hook/instance/remove"}
+	}
+}

@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Stat": {
+            "applicationId": "8VJZ3dyJnf4VlbemoO6QJwiyRpYz5HXHGA8zy8kS", 
+            "masterKey": "98KctHkXko6WZU8R1sH3Tu81du8YUs3RlNHtwnnx"
+        }, 
+        "_default": {
+            "link": "Stat"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.8"
+    }
+}
