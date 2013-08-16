@@ -47,7 +47,10 @@ dashboard.init = function() {
 	var self = this;
 
 	var defaultConfig = {
-		"instanceId": this.config.get("instance.name")
+		"instanceId": this.config.get("instance.name"),
+		"collectUA": true,
+		"collectURL": true,
+		"displayStat": true
 	};
 	this.set("data", $.extend(true, defaultConfig, this.config.get("instance.config")));
 	if (!this.config.get("instance.config.instanceId")) {
@@ -97,10 +100,10 @@ dashboard.renderers.statistics = function(element) {
 				"col": self.labels.get(stat)
 			}
 		}));
-		$.map(self.get("statistics." + stat), function(count, title) {
+		$.map(self.sortStatistics(self.get("statistics." + stat)), function(data) {
 			var row = $("<tr>");
-			$("<td>").append(title).appendTo(row);
-			$("<td>").append(count).appendTo(row);
+			$("<td>").append(data.title).appendTo(row);
+			$("<td>").append(data.count).appendTo(row);
 			table.find("tbody").append(row);
 		});
 		element.append(table);
@@ -120,6 +123,19 @@ dashboard.methods.retrieveStatistics = function(callback) {
 	$.get(this.config.get("serverAddress") + "/stat/" + this.get("data.instanceId"), {}, function(response) {
 		self.set("statistics", response.data);
 		callback && callback();
+	});
+};
+
+dashboard.methods.sortStatistics = function(data) {
+	var rs = [];
+	$.map(data, function(v, k) {
+		rs.push({
+			"title": k,
+			"count": v
+		});
+	});
+	return rs.sort(function(a, b) {
+		return b.count - a.count;
 	});
 };
 
