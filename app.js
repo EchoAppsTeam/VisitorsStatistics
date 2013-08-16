@@ -4,11 +4,23 @@ VisitorsStatistics = function(config) {
 	var self = this;
 	var serverAddress = "http://statistic.parseapp.com";
 
-	$.post(serverAddress + "/collect", {"instanceId": config.instanceId, "ua": navigator.userAgent, "url": document.URL}, function(response) {
+	var data = {
+		"instanceId": config.instanceId,
+		"ua": (config.collectUA && navigator.userAgent) || "",
+		"url": (config.collectURL && document.URL) || ""
+	};
+	$.post(serverAddress + "/collect", data, function(response) {
 		if (response["result"] === "success") {
-			config.target.append(response.count);
+			if (config.displayStat) {
+				$("<div>")
+					.css("background", "url(http://echosandbox.com/apps/glyphicons_051_eye_open.png) no-repeat")
+					.css("width", "31px")
+					.css("height", "17px")
+					.css("padding-left", "33px")
+					.html(response.count)
+					.appendTo(config.target);
+			}
 		}
-		console.log( "Response: ", response );
 	});
 };
 
