@@ -97,8 +97,8 @@ function prepareStatistic(statistic) {
 		"count": statistic.length
 	};
 	for (var i = 0; i < statistic.length; i++) {
-		var ua = statistic[i].get("ua");
-		var url = statistic[i].get("url");
+		var ua = statistic[i].get("ua") || "Unknown";
+		var url = statistic[i].get("url") || "Unknown";
 		result.ua[ua] = typeof result.ua[ua] === "undefined" ? 1 : result.ua[ua] + 1;
 		result.url[url] = typeof result.url[url] === "undefined" ? 1 : result.url[url] + 1;
 	}
