@@ -2,7 +2,7 @@
 
 VisitorsStatistics = function(config) {
 	var self = this;
-	var serverAddress = "http://statistic.parseapp.com";
+	var serverAddress = "http://vstat.parseapp.com";
 
 	var data = {
 		"instanceId": config.instanceId,

@@ -16,15 +16,18 @@
 		"name": "Unlimited plan (stat)"
 	}],
 	"dashboards": [{
-		// TODO
+		"id": "visitors-statistics-dashboard",
+		"caption": "Visitors Statistics Dashboard",
+		"script": "http://echosandbox.com/apps/VisitorsStatistics/dashboard.js",
+		"component": "VisitorsStatistics.Dashboard"
 	}],
 	"application": {
 		"component": "VisitorsStatistics",
-		"script": "http://stat.evseev.ul.js-kit.com/app.js"
+		"script": "http://echosandbox.com/apps/VisitorsStatistics/app.js"
 	},
 	"version": "v0.1",
 	"webhooks": {
-		"instance/add": {"url": "http://statistic.parseapp.com/hook/instance/add"},
-		"instance/remove": {"url": "http://statistic.parseapp.com/hook/instance/remove"}
+		"instance/add": {"url": "http://vstat.parseapp.com/hook/instance/add"},
+		"instance/remove": {"url": "http://vstat.parseapp.com/hook/instance/remove"}
 	}
 }

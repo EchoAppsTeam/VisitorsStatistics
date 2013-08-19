@@ -9,9 +9,9 @@ var dashboard = Echo.AppServer.Dashboard.manifest("VisitorsStatistics.Dashboard"
 dashboard.inherits = Echo.Utils.getComponent("Echo.Apps.AppServer.Dashboard");
 
 dashboard.labels = {
-	"collectUA": "Collect User-Agent statistic",
-	"collectURL": "Collect URL statistic",
-	"displayStat": "Display statistic in client-facing widget",
+	"collectUA": "Collect User-Agent statistics",
+	"collectURL": "Collect URL statistics",
+	"displayStat": "Display statistics in client-facing widget",
 	"totalVisitors": "Total visitors",
 	"statisticsByURL": "Statistics by URL",
 	"statisticsByUA": "Statistics by User-Agent",
@@ -21,7 +21,7 @@ dashboard.labels = {
 };
 
 dashboard.config = {
-	"serverAddress": "http://statistic.parseapp.com"
+	"serverAddress": "http://vstat.parseapp.com"
 };
 
 dashboard.templates.main =
