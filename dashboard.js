@@ -13,8 +13,8 @@ dashboard.labels = {
 	"collectURL": "Collect URL statistics",
 	"displayStat": "Display statistics in client-facing widget",
 	"totalVisitors": "Total visitors",
-	"statisticsByURL": "Statistics by URL",
-	"statisticsByUA": "Statistics by User-Agent",
+	"statisticsByURL": "Statistics by URL:",
+	"statisticsByUA": "Statistics by User-Agent:",
 	"url": "URL",
 	"ua": "User-Agent",
 	"visitorsCount": "Visitors"
@@ -142,6 +142,7 @@ dashboard.methods.sortStatistics = function(data) {
 dashboard.css =
 	'.echo-sdk-ui .{class:checkbox} > input[type="checkbox"] { margin: 0px 5px 0px 0px; }' +
 	'.{class:statistics} { margin: 10px 0px 0px 0px; }' +
+	'.{class:statistics} caption { text-align: left; font: bold 14px Arial; }' +
 	'.{class:visitorsLabel} { width: 100px; }';
 
 Echo.AppServer.Dashboard.create(dashboard);
