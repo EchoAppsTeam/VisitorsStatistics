@@ -80,8 +80,21 @@ app.post("/hook/instance/remove", express.basicAuth(config.auth.username, config
 		var query = new Parse.Query(Instance);
 		query.equalTo("instance_id", req.body.instance.name);
 		query.first().then(function(instance) {
-			instance && instance.destroy();
-			res.send({"result": "success"});
+			if (instance) {
+				instance.relation("stat").query().find().then(function(stat) {
+					var promises = [];
+					for (var i in stat) {
+						promises.push(stat[i].destroy());
+					}
+					return Parse.Promise.when(promises);
+
+				}).then(function() {
+					instance.destroy();
+					res.send({"result": "success"});
+				});
+			} else {
+				res.send({"result": "success"});
+			}
 		}, function() {
 			res.send({"result": "success"});
 		});
