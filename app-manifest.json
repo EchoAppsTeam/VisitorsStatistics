@@ -2,7 +2,7 @@
 	"id": "visitors-statistics",
 	"name": "Visitors Statistics",
 	"description": "This app allows to count visitors who opened the page with this application.",
-	"icon": "",
+	"icon": "http://echosandbox.com/apps/VisitorsStatistics/icon.png",
 	"category": "applications",
 	"developer": {
 		"id": "echo",
@@ -16,7 +16,7 @@
 		"name": "Unlimited plan (stat)"
 	}],
 	"dashboards": [{
-		"id": "visitors-statistics-dashboard",
+		"id": "instances",
 		"caption": "Visitors Statistics Dashboard",
 		"script": "http://echosandbox.com/apps/VisitorsStatistics/dashboard.js",
 		"component": "VisitorsStatistics.Dashboard"

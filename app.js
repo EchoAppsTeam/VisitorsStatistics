@@ -13,7 +13,7 @@ VisitorsStatistics = function(config) {
 		if (response["result"] === "success") {
 			if (config.displayStat) {
 				$("<div>")
-					.css("background", "url(http://echosandbox.com/apps/glyphicons_051_eye_open.png) no-repeat")
+					.css("background", "url(http://echosandbox.com/apps/VisitorsStatistics/icon.png) no-repeat")
 					.css("width", "31px")
 					.css("height", "17px")
 					.css("padding-left", "33px")
