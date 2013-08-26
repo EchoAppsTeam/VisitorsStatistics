@@ -1,16 +1,7 @@
 var express = require('express');
 var app = express();
 
-var config = {
-	"auth": {
-		"username": "echo",
-		"password": "0e82f70bfafc7f3fc0eeb277ec53cd96"
-	},
-	"parse": {
-		"appId": "8VJZ3dyJnf4VlbemoO6QJwiyRpYz5HXHGA8zy8kS",
-		"key": "PbZDm9jECZq52UHGRR2ea0HpCQPvdFa0rlqdShfs"
-	}
-};
+var config = require("cloud/config.js");
 
 Parse.initialize(config.parse.appId, config.parse.key);
 var Instance = Parse.Object.extend("Instance");

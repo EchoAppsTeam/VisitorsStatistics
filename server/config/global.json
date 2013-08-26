@@ -1,11 +1,11 @@
 {
     "applications": {
-        "Stat": {
-            "applicationId": "8VJZ3dyJnf4VlbemoO6QJwiyRpYz5HXHGA8zy8kS", 
-            "masterKey": "98KctHkXko6WZU8R1sH3Tu81du8YUs3RlNHtwnnx"
+        "VisitorsStatistics": {
+            "applicationId": "H33rGCgiXmpFaloU2kHU67cjeQxh8Jm3XDSaPz70", 
+            "masterKey": "lEbB6gtfKen6zVtQaRZuPQaXtNxMuccghvanRFS0"
         }, 
         "_default": {
-            "link": "Stat"
+            "link": "VisitorsStatistics"
         }
     }, 
     "global": {
