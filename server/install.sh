@@ -12,7 +12,7 @@ sed -i "s/__APP_NAME__/$appName/g" `dirname $0`/config/global.json
 sed -i "s/__APP_ID__/$appId/g" `dirname $0`/config/global.json
 sed -i "s/__APP_MASTER_KEY__/$masterKey/g" `dirname $0`/config/global.json
 
-cp `dirname $0`/cloud/config.sample.json `dirname $0`/cloud/config.js
+cp `dirname $0`/cloud/config.sample.js `dirname $0`/cloud/config.js
 sed -i "s/__APP_ID__/$appId/g" `dirname $0`/cloud/config.js
 sed -i "s/__APP_JAVASCRIPT_KEY__/$jsKey/g" `dirname $0`/cloud/config.js
 sed -i "s/__BASIC_AUHT_LOGIN__/$authLogin/g" `dirname $0`/cloud/config.js
