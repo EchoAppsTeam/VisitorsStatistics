@@ -17,7 +17,7 @@
 	}],
 	"dashboards": [{
 		"id": "instances",
-		"caption": "Visitors Statistics Dashboard",
+		"title": "Instances",
 		"script": "http://echosandbox.com/apps/VisitorsStatistics/dashboard.js",
 		"component": "VisitorsStatistics.Dashboard"
 	}],
