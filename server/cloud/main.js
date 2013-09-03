@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 
-var config = require("cloud/config.js");
 var config = {
 	"auth": {
 		"username": "[webhooks_auth_login]",
