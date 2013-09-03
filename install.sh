@@ -5,10 +5,6 @@ params=( parse_application_name parse_app_domain parse_app_id parse_master_key p
 build_dir="`dirname $0`/build"
 rm -rf $build_dir
 
-tits=arse
-arse=cheese
-
-files=`find ./ -type f -regex ".+\.js\(on\)*"`
 for file in `find ./ -type f -regex ".+\.js\(on\)*"`; do
 	dest_file="$build_dir/$file"
 	mkdir -p "$build_dir/`dirname $file`"
