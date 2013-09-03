@@ -11,14 +11,14 @@ Deploy the server-side code to parse.com.
 3. Clone this repository.
 
     	git clone git@github.com:EchoAppsTeam/VisitorsStatistics.git; cd VisitorsStatistics
-3. Copy the settings file:
+4. Copy the settings file:
 
     	cp settings.sample.cfg settings.cfg
-4. Fill in necessary parameters in the settings.cfg
-5. Run `./install.sh` and install script will copy the application files to the
+5. Fill in necessary parameters in the settings.cfg
+6. Run `./install.sh` and install script will copy the application files to the
     ./build/* directory and make the necessary replacements in these files.
 
-4. Now you can deploy your server-side code to parse.com: 
+7. Now you can deploy your server-side code to parse.com: 
 
     	cd build/server/
     	parse deploy
