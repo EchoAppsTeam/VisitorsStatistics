@@ -2,6 +2,16 @@ var express = require('express');
 var app = express();
 
 var config = require("cloud/config.js");
+var config = {
+	"auth": {
+		"username": "[webhooks_auth_login]",
+		"password": "[webhooks_auth_password]"
+	},
+	"parse": {
+		"appId": "[parse_app_id]",
+		"key": "[parse_js_key]"
+	}
+};
 
 Parse.initialize(config.parse.appId, config.parse.key);
 var Instance = Parse.Object.extend("Instance");

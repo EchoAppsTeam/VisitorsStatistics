@@ -1,2 +1,2 @@
-server/config/global.json
-server/cloud/config.js
+settings.cfg
+build/*

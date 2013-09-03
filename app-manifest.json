@@ -2,7 +2,7 @@
 	"id": "visitors-statistics",
 	"name": "Visitors Statistics",
 	"description": "This app allows to count visitors who opened the page with this application.",
-	"icon": "http://echosandbox.com/apps/VisitorsStatistics/icon.png",
+	"icon": "[app_url]/icon.png",
 	"category": "applications",
 	"developer": {
 		"id": "echo",
@@ -13,21 +13,21 @@
 	},
 	"plans": [{
 		"id": "unlimited",
-		"name": "Unlimited plan (stat)"
+		"name": "Unlimited plan"
 	}],
 	"dashboards": [{
 		"id": "instances",
 		"title": "Instances",
-		"script": "http://echosandbox.com/apps/VisitorsStatistics/dashboard.js",
+		"script": "[app_url]/dashboard.js",
 		"component": "VisitorsStatistics.Dashboard"
 	}],
 	"application": {
 		"component": "VisitorsStatistics",
-		"script": "http://echosandbox.com/apps/VisitorsStatistics/app.js"
+		"script": "[app_url]/app.js"
 	},
-	"version": "v0.1",
+	"version": "0.1.0",
 	"webhooks": {
-		"instance/add": {"url": "http://vstat.parseapp.com/hook/instance/add"},
-		"instance/remove": {"url": "http://vstat.parseapp.com/hook/instance/remove"}
+		"instance/add": {"url": "http://[parse_app_domain]/hook/instance/add"},
+		"instance/remove": {"url": "http://[parse_app_domain]/hook/instance/remove"}
 	}
 }

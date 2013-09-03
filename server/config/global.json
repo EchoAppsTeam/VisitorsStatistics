@@ -1,0 +1,15 @@
+{
+    "applications": {
+        "VisitorsStatistics": {
+            "applicationId": "[parse_app_id]",
+            "masterKey": "[parse_master_key]"
+        }, 
+        "_default": {
+            "link": "[parse_application_name]"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.8"
+    }
+}
+

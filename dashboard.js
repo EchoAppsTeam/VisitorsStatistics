@@ -6,7 +6,7 @@ if (Echo.Control.isDefined("VisitorsStatistics.Dashboard")) return;
 
 var dashboard = Echo.AppServer.Dashboard.manifest("VisitorsStatistics.Dashboard");
 
-dashboard.inherits = Echo.Utils.getComponent("Echo.Apps.AppServer.Dashboard");
+dashboard.inherits = Echo.Utils.getComponent("Echo.AppServer.Dashboards.AppSettings");
 
 dashboard.labels = {
 	"collectUA": "Collect User-Agent statistics",
@@ -21,7 +21,7 @@ dashboard.labels = {
 };
 
 dashboard.config = {
-	"serverAddress": "http://vstat.parseapp.com"
+	"serverAddress": "http://[parse_app_domain]"
 };
 
 dashboard.templates.main =
@@ -44,21 +44,11 @@ dashboard.templates.statistics =
 	'</table>';
 
 dashboard.init = function() {
-	var self = this;
+	var parent = $.proxy(this.parent, this);
 
-	var defaultConfig = {
-		"instanceId": this.config.get("instance.name"),
-		"collectUA": true,
-		"collectURL": true,
-		"displayStat": true
-	};
-	this.set("data", $.extend(true, defaultConfig, this.config.get("instance.config")));
-	if (!this.config.get("instance.config.instanceId")) {
-		this.update();
-	}
+	this.set("data", $.extend(true, this.declareInitialConfig(), this.config.get("instance.config")));
 	this.retrieveStatistics(function() {
-		self.render();
-		self.ready();
+		parent();
 	});
 };
 
@@ -81,7 +71,7 @@ dashboard.renderers.config = function(element) {
 			.attr("checked", self.get("data." + name))
 			.on("click", function() {
 				self.set("data." + name, $(this).is(":checked"));
-				self.update();
+				self.update({"config": self.get("data")});
 			});
 
 		element.append(container);
@@ -114,13 +104,18 @@ dashboard.renderers.statistics = function(element) {
 /*
  * Methods
  */
-dashboard.methods.getValue = function() {
-	return this.get("data");
+dashboard.methods.declareInitialConfig = function() {
+	return {
+		"instanceId": this.config.get("instance.name"),
+		"collectUA": true,
+		"collectURL": true,
+		"displayStat": true
+	}
 };
 
 dashboard.methods.retrieveStatistics = function(callback) {
 	var self = this;
-	$.get(this.config.get("serverAddress") + "/stat/" + this.get("data.instanceId"), {}, function(response) {
+	$.get(this.config.get("serverAddress") + "/stat/" + this.config.get("instance.name"), {}, function(response) {
 		self.set("statistics", response.data);
 		callback && callback();
 	});
