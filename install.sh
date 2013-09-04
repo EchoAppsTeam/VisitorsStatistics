@@ -5,12 +5,13 @@ params=( parse_application_name parse_app_domain parse_app_id parse_master_key p
 build_dir="`dirname $0`/build"
 rm -rf $build_dir
 
-for file in `find ./ -type f -regex ".+\.js\(on\)*"`; do
+for file in `find ./ -type f -regex ".+\.js.*"`; do
 	dest_file="$build_dir/$file"
 	mkdir -p "$build_dir/`dirname $file`"
 	cp $file $dest_file
 	for param in "${params[@]}"
 	do
-		sed -i "s=\[$param\]=${!param}=g" $dest_file
+		escaped=`echo "${!param}" | sed -e 's/[\/&]/\\\&/g'`
+		sed -i "s/\[$param\]/$escaped/g" $dest_file
 	done
 done
